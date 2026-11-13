@@ -1,0 +1,693 @@
+ASTRONAUT HEALTH MONITORING SYSTEM
+
+NASA Space Apps Challenge 2026
+
+Tema: Human Exploration
+Área: Software / Space Exploration
+Nível: Intermediate
+
+---
+
+1. Descrição do projecto
+
+O Astronaut Health Monitoring System (AHMS) é um software desenvolvido para ajudar astronautas a acompanhar a sua saúde durante missões espaciais, principalmente em missões de longa duração.
+
+O sistema recolhe diferentes indicadores relacionados com a saúde física e o bem-estar psicológico do astronauta. Esses dados são armazenados e analisados ao longo do tempo para identificar alterações em relação ao padrão normal daquele astronauta.
+
+Quando o sistema identifica uma alteração relevante, apresenta um alerta e indica ao astronauta que deve realizar uma determinada acção de acompanhamento.
+
+O sistema não pretende substituir médicos nem diagnosticar doenças. A sua função é ajudar o astronauta a perceber alterações no seu estado de saúde mais cedo e ter informação organizada para decidir os próximos passos de acordo com os protocolos da missão.
+
+---
+
+2. Problema que o projecto pretende resolver
+
+As missões espaciais de longa duração podem afectar a saúde dos astronautas de várias formas.
+
+Entre os principais factores estão:
+
+- exposição à radiação espacial;
+- microgravidade;
+- perda de massa muscular e óssea;
+- alterações cardiovasculares;
+- alterações do sistema imunitário;
+- alterações do sono;
+- fadiga;
+- stress;
+- isolamento e confinamento;
+- alterações comportamentais;
+- ambiente fechado durante longos períodos.
+
+Algumas destas alterações podem desenvolver-se gradualmente.
+
+Por isso, simplesmente verificar o estado de saúde uma vez por dia pode não ser suficiente. É importante também observar como os indicadores estão a mudar ao longo do tempo.
+
+O AHMS pretende resolver precisamente este problema.
+
+---
+
+3. Objectivo principal
+
+Criar um sistema que permita ao astronauta monitorizar a sua saúde, acompanhar a evolução dos seus indicadores e identificar alterações significativas durante uma missão espacial.
+
+---
+
+4. Objectivos específicos
+
+O sistema deverá permitir:
+
+- recolher dados de saúde;
+- registar informações introduzidas pelo astronauta;
+- acompanhar sono, fadiga, stress e exercício;
+- guardar o histórico dos dados;
+- estabelecer um padrão individual para cada astronauta;
+- comparar novos dados com esse padrão;
+- identificar tendências;
+- detectar possíveis anomalias;
+- gerar alertas;
+- apresentar recomendações de acompanhamento;
+- permitir a consulta do histórico;
+- disponibilizar informações à equipa de apoio em Terra;
+- continuar a funcionar quando não existir comunicação com a Terra.
+
+---
+
+5. Utilizadores
+
+5.1 Astronauta
+
+O astronauta será o principal utilizador do sistema.
+
+Poderá:
+
+- consultar o seu estado actual;
+- consultar os seus indicadores;
+- realizar avaliações diárias;
+- registar sintomas;
+- acompanhar o sono;
+- registar actividades físicas;
+- consultar históricos;
+- receber alertas;
+- visualizar recomendações.
+
+---
+
+5.2 Equipa médica / Mission Control
+
+Uma interface separada poderá ser disponibilizada para os profissionais responsáveis pelo acompanhamento da tripulação.
+
+Essa equipa poderá:
+
+- consultar o estado dos astronautas;
+- acompanhar tendências;
+- receber alertas;
+- consultar históricos;
+- analisar alterações;
+- acompanhar situações que necessitem de atenção.
+
+O acesso aos dados deverá ser controlado através de autenticação e permissões.
+
+---
+
+6. Dashboard principal
+
+Ao entrar no sistema, o astronauta deverá conseguir perceber rapidamente o seu estado actual.
+
+O dashboard poderá apresentar:
+
+- estado geral;
+- frequência cardíaca;
+- saturação de oxigénio;
+- sono;
+- fadiga;
+- stress;
+- humor;
+- exercício;
+- sintomas;
+- alertas recentes.
+
+Por exemplo:
+
+Estado actual: Atenção
+
+- Cardiovascular: Normal
+- Respiratório: Normal
+- Sono: Atenção
+- Fadiga: Atenção
+- Saúde comportamental: Normal
+- Exercício: Normal
+
+A informação deve ser simples e fácil de interpretar.
+
+---
+
+7. Monitorização cardiovascular
+
+O sistema poderá acompanhar indicadores como:
+
+- frequência cardíaca;
+- frequência cardíaca em repouso;
+- pressão arterial, quando disponível;
+- saturação de oxigénio;
+- variabilidade da frequência cardíaca, quando disponível.
+
+O mais importante não será apenas mostrar o valor actual.
+
+O sistema deverá também comparar o valor com o histórico do astronauta.
+
+Por exemplo, se normalmente a frequência cardíaca em repouso estiver dentro de determinada faixa e começar a aumentar durante vários dias, essa tendência poderá ser sinalizada para acompanhamento.
+
+---
+
+8. Monitorização respiratória
+
+O sistema poderá acompanhar:
+
+- saturação de oxigénio;
+- frequência respiratória;
+- sintomas respiratórios;
+- alterações ao longo do tempo.
+
+Novamente, os dados deverão ser analisados considerando o padrão individual do astronauta.
+
+---
+
+9. Monitorização do sono
+
+O sono é particularmente importante numa missão de longa duração.
+
+O sistema poderá registar:
+
+- horas de sono;
+- qualidade do sono;
+- interrupções;
+- horário de sono;
+- média semanal;
+- tendência do sono.
+
+Exemplo:
+
+Sono de hoje: 5h31
+Média habitual: 7h15
+
+O sistema poderá identificar que o astronauta está a dormir significativamente menos do que o habitual.
+
+Se isso acontecer durante vários dias consecutivos, poderá gerar um alerta de atenção.
+
+---
+
+10. Monitorização física
+
+O sistema poderá acompanhar a actividade física do astronauta.
+
+Informações possíveis:
+
+- duração do exercício;
+- tipo de exercício;
+- intensidade;
+- frequência dos exercícios;
+- frequência semanal;
+- fadiga após exercício.
+
+Estes dados podem ajudar a acompanhar a rotina física durante a missão.
+
+---
+
+11. Saúde comportamental
+
+O sistema também deverá considerar o bem-estar psicológico e comportamental.
+
+Uma vez por dia, o astronauta poderá realizar um pequeno check-in.
+
+Poderá indicar, por exemplo:
+
+- nível de stress;
+- nível de fadiga;
+- humor;
+- sensação de isolamento;
+- qualidade da concentração;
+- motivação;
+- qualidade do sono.
+
+Exemplo:
+
+Stress: 7/10
+Fadiga: 6/10
+Humor: Normal
+Sensação de isolamento: 4/10
+
+O sistema poderá acompanhar estes valores ao longo dos dias para identificar mudanças.
+
+---
+
+12. Registo de sintomas
+
+O astronauta poderá registar sintomas manualmente.
+
+Exemplos:
+
+- dor de cabeça;
+- tontura;
+- náusea;
+- dor muscular;
+- fadiga;
+- dificuldade respiratória;
+- outros sintomas.
+
+Também poderá adicionar uma observação escrita.
+
+O objectivo é criar um histórico que possa ser consultado posteriormente pelo próprio astronauta ou, de acordo com as permissões da missão, pela equipa médica.
+
+---
+
+13. Baseline individual
+
+Esta será uma das partes mais importantes do sistema.
+
+Cada pessoa possui características fisiológicas diferentes.
+
+Por isso, o sistema não deverá considerar apenas valores genéricos.
+
+Durante um período inicial, o AHMS poderá estabelecer um baseline individual, ou seja, uma referência baseada nos dados normais daquele astronauta.
+
+Por exemplo:
+
+Frequência cardíaca em repouso habitual: 61–68 bpm
+Sono habitual: 7–8 horas
+Stress habitual: 2–4/10
+Fadiga habitual: 2–3/10
+
+Os dados futuros serão comparados principalmente com esse padrão.
+
+---
+
+14. Análise de tendências
+
+O sistema deverá analisar a evolução dos indicadores.
+
+Uma alteração isolada não significa necessariamente que exista um problema.
+
+Por exemplo:
+
+- Dia 1: 64 bpm
+- Dia 2: 65 bpm
+- Dia 3: 66 bpm
+- Dia 4: 69 bpm
+- Dia 5: 72 bpm
+- Dia 6: 75 bpm
+
+O sistema pode identificar que existe uma tendência crescente.
+
+A análise torna-se ainda mais relevante quando diferentes indicadores mudam simultaneamente.
+
+Por exemplo:
+
+- frequência cardíaca aumenta;
+- horas de sono diminuem;
+- fadiga aumenta;
+- stress aumenta.
+
+Nesse caso, o sistema poderá sinalizar uma alteração do padrão habitual.
+
+---
+
+15. Detecção de anomalias
+
+O AHMS poderá utilizar regras estatísticas ou algoritmos de detecção de anomalias para identificar alterações.
+
+A análise poderá considerar:
+
+- valor actual;
+- baseline individual;
+- histórico;
+- tendência;
+- duração da alteração;
+- combinação de diferentes indicadores.
+
+O resultado não deverá ser um diagnóstico.
+
+Em vez de dizer:
+
+«"O astronauta tem determinada doença."»
+
+o sistema deverá dizer algo como:
+
+«"Foram detectadas alterações relativamente ao padrão habitual. Recomenda-se realizar uma avaliação adicional de acordo com o protocolo da missão."»
+
+---
+
+16. Sistema de alertas
+
+Os alertas poderão ser divididos em três níveis.
+
+Normal
+
+Não foram detectadas alterações relevantes.
+
+Atenção
+
+Foi detectada uma alteração que deve continuar a ser acompanhada.
+
+Exemplo:
+
+«O tempo de sono está abaixo do padrão habitual há quatro dias.»
+
+Prioridade
+
+Foram detectadas alterações relevantes ou múltiplos indicadores desviaram-se simultaneamente.
+
+Exemplo:
+
+«Foram detectadas alterações simultâneas na frequência cardíaca, sono e fadiga. Recomenda-se realizar uma avaliação de saúde e seguir o protocolo médico da missão.»
+
+---
+
+17. Recomendações
+
+Depois de identificar uma alteração, o sistema poderá apresentar acções de acompanhamento.
+
+Por exemplo:
+
+- realizar o check-in diário;
+- verificar novamente determinados indicadores;
+- rever o período de descanso;
+- registar sintomas;
+- continuar a monitorização;
+- contactar a equipa médica, quando indicado pelo protocolo.
+
+As recomendações deverão ser apresentadas como orientações de acompanhamento, e não como diagnósticos.
+
+---
+
+18. Histórico de saúde
+
+O astronauta poderá consultar os seus dados anteriores.
+
+O sistema deverá permitir visualizar:
+
+- dados de hoje;
+- dados dos últimos dias;
+- médias;
+- tendências;
+- alertas anteriores;
+- sintomas registados;
+- exercício;
+- sono;
+- avaliações comportamentais.
+
+A visualização através de gráficos permitirá perceber facilmente alterações ao longo da missão.
+
+---
+
+19. Timeline da missão
+
+O sistema poderá manter um histórico dos acontecimentos importantes.
+
+Por exemplo:
+
+Dia 180: estado normal
+Dia 181: estado normal
+Dia 182: redução do sono detectada
+Dia 183: aumento da fadiga
+Dia 184: alerta gerado
+
+Isto permite compreender quando uma alteração começou e como evoluiu.
+
+---
+
+20. Mission Control
+
+A equipa em Terra terá uma interface própria.
+
+Nessa interface será possível consultar o estado da tripulação e identificar situações que necessitem de atenção.
+
+Para cada astronauta poderão ser apresentados:
+
+- estado actual;
+- alertas activos;
+- tendências;
+- últimos dados;
+- histórico;
+- avaliações recentes.
+
+O acesso deverá ser protegido para impedir que dados de saúde sejam consultados por pessoas não autorizadas.
+
+---
+
+21. Funcionamento offline
+
+Uma missão espacial não deve depender de uma ligação permanente à Terra.
+
+Por isso, o sistema deverá ser desenvolvido com uma abordagem offline-first.
+
+Mesmo sem comunicação, o astronauta deverá conseguir:
+
+- consultar os seus dados;
+- introduzir novos dados;
+- realizar avaliações;
+- receber alertas;
+- executar a análise local;
+- armazenar os dados.
+
+Quando a comunicação estiver disponível novamente, os dados poderão ser sincronizados com a equipa em Terra.
+
+---
+
+22. Dados utilizados no protótipo
+
+Para o hackathon, o sistema poderá utilizar dados simulados.
+
+O conjunto de dados poderá conter:
+
+- identificação do astronauta;
+- data e hora;
+- frequência cardíaca;
+- saturação de oxigénio;
+- frequência respiratória;
+- horas de sono;
+- stress;
+- fadiga;
+- humor;
+- exercício;
+- sintomas.
+
+Os dados simulados poderão representar uma missão de vários meses.
+
+Durante a simulação, os indicadores poderão começar normais e posteriormente apresentar alterações progressivas.
+
+Isso permitirá demonstrar a capacidade do sistema de detectar tendências.
+
+---
+
+23. Arquitectura tecnológica
+
+Frontend
+
+- React
+- Vite
+- CSS ou Tailwind CSS
+- Chart.js ou Recharts
+
+Backend
+
+- Node.js
+- Express
+
+Base de dados
+
+Para o protótipo:
+
+- SQLite
+
+Para uma implementação maior:
+
+- PostgreSQL
+
+Análise de dados
+
+Inicialmente:
+
+- JavaScript/Node.js;
+- regras estatísticas;
+- algoritmos simples de detecção de anomalias.
+
+Posteriormente poderá ser acrescentado:
+
+- Python;
+- Machine Learning;
+- modelos personalizados para cada astronauta.
+
+---
+
+24. Estrutura inicial da base de dados
+
+O sistema poderá ter as seguintes entidades principais:
+
+Astronaut
+
+Guarda informações básicas do astronauta e da missão.
+
+HealthMeasurement
+
+Guarda os indicadores fisiológicos.
+
+SleepRecord
+
+Guarda informações sobre o sono.
+
+ExerciseRecord
+
+Guarda as actividades físicas.
+
+BehavioralAssessment
+
+Guarda stress, humor, fadiga e outros indicadores comportamentais.
+
+Symptom
+
+Guarda sintomas registados pelo astronauta.
+
+Alert
+
+Guarda os alertas gerados pelo sistema.
+
+MissionEvent
+
+Guarda acontecimentos importantes da missão.
+
+---
+
+25. Segurança
+
+Como o sistema trabalha com dados de saúde, a segurança deve ser considerada desde o início.
+
+O projecto deverá considerar:
+
+- autenticação;
+- controlo de permissões;
+- encriptação;
+- comunicação segura;
+- registo de acessos;
+- armazenamento seguro;
+- sincronização autenticada.
+
+Cada utilizador deverá ter acesso apenas aos dados necessários para a sua função.
+
+---
+
+26. MVP
+
+Para o NASA Space Apps Challenge, não é necessário construir imediatamente um sistema completo.
+
+O MVP deverá concentrar-se nas funcionalidades mais importantes:
+
+1. Login.
+2. Dashboard do astronauta.
+3. Registo de indicadores.
+4. Check-in diário.
+5. Registo de sintomas.
+6. Histórico de dados.
+7. Baseline individual.
+8. Análise de tendências.
+9. Detecção de alterações.
+10. Sistema de alertas.
+11. Interface básica de Mission Control.
+12. Funcionamento offline.
+
+---
+
+27. Demonstração
+
+A apresentação poderá mostrar uma missão simulada.
+
+Primeiro, o astronauta apresenta indicadores normais.
+
+Depois, durante vários dias:
+
+- o sono começa a diminuir;
+- a fadiga aumenta;
+- o stress aumenta;
+- a frequência cardíaca apresenta uma tendência diferente do habitual.
+
+O sistema identifica essas alterações e muda o estado para Atenção.
+
+Se posteriormente vários indicadores apresentarem alterações simultâneas, o sistema poderá gerar um alerta de prioridade e apresentar as acções de acompanhamento apropriadas.
+
+A equipa poderá então mostrar como o mesmo evento aparece no painel do Mission Control.
+
+---
+
+28. Diferencial
+
+O AHMS não pretende ser apenas uma aplicação que apresenta sinais vitais.
+
+A principal ideia é combinar:
+
+- indicadores físicos;
+- sono;
+- exercício;
+- saúde comportamental;
+- sintomas;
+- histórico;
+- baseline individual;
+- análise de tendências;
+- detecção de alterações;
+- alertas;
+- funcionamento offline.
+
+O sistema transforma vários dados dispersos numa visão mais clara da evolução da saúde do astronauta.
+
+---
+
+29. Limitações
+
+O protótipo deverá deixar claras algumas limitações.
+
+Ele:
+
+- não substitui profissionais de saúde;
+- não fornece diagnóstico médico;
+- não deve ser utilizado como único mecanismo de decisão clínica;
+- utilizará dados simulados no protótipo;
+- precisaria de validação científica e clínica antes de ser utilizado numa missão real;
+- deverá seguir protocolos médicos específicos de cada missão.
+
+---
+
+30. Evolução futura
+
+Depois do MVP, o projecto poderá ser expandido para suportar:
+
+- smartwatches;
+- sensores biométricos;
+- sensores ambientais da nave;
+- equipamentos de exercício;
+- dispositivos médicos;
+- modelos de Machine Learning;
+- análise avançada de anomalias;
+- processamento local com Edge AI;
+- sincronização avançada com Mission Control;
+- suporte a diferentes tipos de missões espaciais;
+- modelos personalizados para cada astronauta.
+
+Uma evolução mais avançada poderia criar um digital twin fisiológico, permitindo acompanhar de forma mais detalhada a evolução individual do astronauta durante uma missão.
+
+---
+
+31. Resumo do projecto
+
+O Astronaut Health Monitoring System será uma plataforma de monitorização de saúde concebida para missões espaciais de longa duração.
+
+O sistema recolhe indicadores físicos e comportamentais, estabelece um padrão individual para cada astronauta e acompanha alterações ao longo do tempo.
+
+Quando identifica desvios relevantes, apresenta alertas e orientações de acompanhamento, permitindo ao astronauta compreender melhor o seu estado e fornecendo informação estruturada à equipa responsável.
+
+A aplicação será concebida para funcionar mesmo durante períodos sem comunicação com a Terra.
+
+O objectivo final é proporcionar ao astronauta uma ferramenta simples, segura e inteligente para responder a três perguntas fundamentais:
+
+Como estou?
+
+O que mudou?
+
+Que acção devo considerar de acordo com o protocolo da missão?
