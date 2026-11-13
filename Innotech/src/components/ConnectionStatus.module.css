@@ -1,0 +1,175 @@
+.statusWrap {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.connectionStatus {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 24px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  animation: fadeIn 0.4s ease;
+  backdrop-filter: blur(8px);
+  border: 1px solid transparent;
+  transition: all var(--transition);
+}
+
+.online {
+  background: rgba(74, 222, 128, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.1);
+}
+
+.offline {
+  background: rgba(248, 113, 113, 0.1);
+  color: var(--danger);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  box-shadow: 0 0 15px rgba(248, 113, 113, 0.1);
+}
+
+.checking {
+  background: rgba(148, 163, 184, 0.1);
+  color: var(--text-muted);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2s infinite;
+}
+
+.offline .dot {
+  animation: none;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.queueStatus {
+  padding-left: 0.5rem;
+  border-left: 1px solid currentColor;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.queueToggle {
+  padding: 0;
+  border: 0;
+  border-left: 1px solid currentColor;
+  padding-left: 0.5rem;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  cursor: pointer;
+}
+
+.queuePanel {
+  position: absolute;
+  z-index: 120;
+  top: calc(100% + 0.65rem);
+  right: 0;
+  width: min(28rem, calc(100vw - 2rem));
+  max-height: min(70vh, 36rem);
+  overflow: auto;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-elevated);
+  color: var(--text);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+.queueHeading,
+.queueItemHeading,
+.queueActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.queueHeading h2 {
+  font-size: 0.95rem;
+}
+
+.queueHeading button,
+.queueActions button {
+  padding: 0.35rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.queueExplanation,
+.queueItem p,
+.queueItem time {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.queueExplanation {
+  margin: 0.55rem 0 0.85rem;
+}
+
+.queueList {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.queueItem {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.queueItemHeading strong {
+  font-size: 0.8rem;
+}
+
+.queueItemHeading span {
+  color: var(--warning, #e3b46b);
+  font-size: 0.7rem;
+}
+
+.queueActions {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.queueActions button:hover,
+.queueHeading button:hover {
+  border-color: var(--accent);
+}
+
+@media (max-width: 440px) {
+  .queuePanel {
+    position: fixed;
+    top: 5.4rem;
+    right: 0.5rem;
+  }
+}

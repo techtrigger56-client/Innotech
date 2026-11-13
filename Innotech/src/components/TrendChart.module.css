@@ -1,0 +1,170 @@
+.card {
+  min-width: 0;
+  padding: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.heading h3 {
+  margin: 0;
+  color: var(--text-h);
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.heading p {
+  margin: 0.25rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.unit {
+  flex: 0 0 auto;
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+}
+
+.currentValue {
+  display: flex;
+  align-items: baseline;
+  gap: 0.375rem;
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+.currentValue strong {
+  color: var(--text-h);
+  font-size: 1.75rem;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+}
+
+.recordCount {
+  margin-left: auto;
+  font-family: inherit;
+  font-size: 0.75rem;
+}
+
+.scaleNote {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+}
+
+.chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.gridLine {
+  stroke: var(--border);
+  stroke-dasharray: 3 5;
+  stroke-width: 1;
+}
+
+.axisLabel {
+  fill: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.point {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.latestPoint {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  min-height: 1.5rem;
+}
+
+.summary p {
+  margin: 0;
+  color: var(--text-h);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.changeMark {
+  flex: 0 0 auto;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.increased {
+  color: var(--warning);
+}
+
+.decreased {
+  color: var(--accent);
+}
+
+.disclaimer {
+  margin: 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.6875rem;
+  line-height: 1.45;
+}
+
+.emptyState {
+  min-height: 11rem;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  border: 1px dashed var(--border);
+  border-radius: calc(var(--radius) * 0.7);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 0.875rem;
+  }
+
+  .axisLabel {
+    font-size: 10px;
+  }
+}

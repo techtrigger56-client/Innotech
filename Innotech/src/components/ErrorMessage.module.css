@@ -1,0 +1,34 @@
+.message {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--text);
+  animation: fadeIn 0.4s ease;
+  backdrop-filter: blur(4px);
+}
+
+.text {
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+}
+
+.retry {
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-elevated);
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.retry:hover {
+  border-color: var(--border-focus);
+  color: var(--accent);
+  background: var(--surface-hover);
+  box-shadow: 0 0 15px rgba(45, 212, 191, 0.1);
+}

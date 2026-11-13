@@ -1,0 +1,105 @@
+.card {
+  min-width: 0;
+  margin-bottom: 1rem;
+  padding: 1rem 1.125rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-elevated);
+}
+
+.heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font: 600 0.65rem/1.4 var(--mono);
+  letter-spacing: 0.12em;
+}
+
+.heading h3 {
+  margin: 0.25rem 0 0;
+  color: var(--text-h);
+  font-size: 0.95rem;
+}
+
+.status {
+  flex: 0 0 auto;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.ready {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.description,
+.disclaimer {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.description {
+  margin: 0.65rem 0;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.metric {
+  min-width: 0;
+  padding: 0.625rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 0.6);
+  background: var(--surface);
+}
+
+.metric dt {
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.metric dd {
+  margin: 0.2rem 0;
+  color: var(--text-h);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 650;
+}
+
+.metric > span {
+  color: var(--text-muted);
+  font-size: 0.62rem;
+}
+
+.disclaimer {
+  margin: 0.65rem 0 0;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.68rem;
+}
+
+@media (max-width: 460px) {
+  .card {
+    padding: 0.875rem;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
