@@ -1,0 +1,15 @@
+node_modules/
+.env
+.env.*
+!.env.example
+
+logs/
+*.log
+npm-debug.log*
+
+*.db-shm
+*.db-wal
+*.sqlite-shm
+*.sqlite-wal
+
+.DS_Store
