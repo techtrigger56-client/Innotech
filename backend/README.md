@@ -12,13 +12,36 @@ npm run dev
 
 Por omissão, a API fica disponível em `http://localhost:4000`.
 
+## Render Free com base de dados Turso
+
+O SQLite local continua a ser usado quando as variáveis Turso não estão definidas. Para manter os dados fora do sistema de ficheiros efémero da Render Free, crie uma base Turso e configure estas variáveis no serviço Render:
+
+- `TURSO_DATABASE_URL`: URL da base, por exemplo `libsql://...`.
+- `TURSO_AUTH_TOKEN`: token de acesso da base; mantenha-o apenas na Render e no ambiente local seguro.
+- `NODE_ENV=production`.
+- `CORS_ORIGINS=https://innotech-beryl.vercel.app` (substitua pela origem exacta do frontend).
+
+O backend cria e actualiza o esquema ao iniciar. Definir apenas uma das duas variáveis Turso é um erro de configuração; defina ambas para usar Turso ou nenhuma para usar SQLite local.
+
+Como a Render Free não oferece Shell nem disco persistente, crie as contas a partir do seu computador, ligado temporariamente à mesma base Turso. No PowerShell, na pasta `backend`:
+
+```powershell
+$env:TURSO_DATABASE_URL = "libsql://..."
+$env:TURSO_AUTH_TOKEN = "token-da-base"
+npm run create-user
+Remove-Item Env:TURSO_DATABASE_URL
+Remove-Item Env:TURSO_AUTH_TOKEN
+```
+
+Repita `npm run create-user` para cada conta. Para astronautas, use os IDs existentes `astro-01` e `astro-02`; Mission Control não requer ID. Não coloque o token no repositório, no frontend ou em screenshots.
+
 ## Organização
 
 - `src/app.js`: configuração Express e montagem das rotas.
 - `src/server.js`: inicialização da base de dados e arranque HTTP.
 - `src/config/`: configurações de segurança.
 - `src/middleware/`: segurança, tratamento de erros e respostas 404.
-- `src/lib/`: utilitários partilhados de validação, SQLite e handlers assíncronos.
+- `src/lib/`: utilitários partilhados de validação, SQLite/Turso e handlers assíncronos.
 - `src/features/health/`: estado da API.
 - `src/features/astronauts/`: listagem e resumo dos astronautas.
 - `src/features/measurements/`: registo e análise de medições.
@@ -29,7 +52,7 @@ Por omissão, a API fica disponível em `http://localhost:4000`.
 - `src/features/auth/`: início/fim de sessão, credenciais e autorização.
 - `src/features/baseline/`: cálculo persistente da referência individual.
 - `src/scripts/create-user.js`: criação local de contas sem endpoint público de registo.
-- `src/db.js`: esquema e inicialização SQLite.
+- `src/db.js`: esquema e inicialização SQLite ou Turso.
 - `data/innotech.db`: base de dados local criada automaticamente.
 
 ## Rotas

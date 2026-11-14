@@ -2,6 +2,8 @@ import sqlite3 from 'sqlite3';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
+import { createClient } from '@libsql/client';
+import { TursoSqliteAdapter } from './lib/turso-adapter.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -9,10 +11,22 @@ const dataDirectory = path.join(__dirname, '..', 'data');
 const dbPath = process.env.AHMS_DATABASE_PATH
   ? path.resolve(process.env.AHMS_DATABASE_PATH)
   : path.join(dataDirectory, 'innotech.db');
+const tursoUrl = process.env.TURSO_DATABASE_URL?.trim();
+const tursoAuthToken = process.env.TURSO_AUTH_TOKEN?.trim();
+let db;
 
-fs.mkdirSync(path.dirname(dbPath), { recursive: true });
-
-const db = new sqlite3.Database(dbPath);
+if (tursoUrl || tursoAuthToken) {
+  if (!tursoUrl || !tursoAuthToken) {
+    throw new Error('TURSO_DATABASE_URL e TURSO_AUTH_TOKEN têm de ser configurados em conjunto.');
+  }
+  db = new TursoSqliteAdapter(createClient({
+    url: tursoUrl,
+    authToken: tursoAuthToken,
+  }));
+} else {
+  fs.mkdirSync(path.dirname(dbPath), { recursive: true });
+  db = new sqlite3.Database(dbPath);
+}
 
 export function initializeDatabase() {
   let migrationResolve;

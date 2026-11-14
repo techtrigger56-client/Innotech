@@ -34,7 +34,7 @@ http://localhost:5173
 
 ## 3. Login de demonstração
 
-Usa as credenciais criadas localmente no backend ou executa a criação de utilizador, se ainda não existir:
+Usa as credenciais criadas na base de dados configurada para o backend. Em desenvolvimento local, podes criar uma conta com:
 
 ```bash
 cd backend
@@ -43,14 +43,29 @@ npm run create-user
 
 Depois inicia sessão na interface do frontend.
 
-Importante: quando o script pede "ID do astronauta associado", esse valor tem de corresponder a um astronauta já existente na base de dados. Os IDs padrões do protótipo são:
+Quando o script pede "ID do astronauta associado", usa um astronauta existente. Os IDs de demonstração são:
 
 ```text
 astro-01
 astro-02
 ```
 
-Se quiser criar uma conta de astronauta, escolhe um destes IDs válidos. Para uma conta de Mission Control, este campo não é necessário.
+Para uma conta de Mission Control, o campo do ID não é necessário.
+
+### Contas na Render Free com Turso
+
+A Render Free não tem Shell nem armazenamento persistente. Com Turso configurado, cria as contas no teu computador, apontando temporariamente para a base Turso da Render:
+
+```powershell
+cd backend
+$env:TURSO_DATABASE_URL = "libsql://..."
+$env:TURSO_AUTH_TOKEN = "token-da-base"
+npm run create-user
+Remove-Item Env:TURSO_DATABASE_URL
+Remove-Item Env:TURSO_AUTH_TOKEN
+```
+
+O token é secreto: não o partilhes nem o coloques no frontend ou no GitHub.
 
 ## 4. Funcionalidades principais
 
