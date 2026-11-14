@@ -65,17 +65,18 @@ export function setSessionCookie(response, token) {
   response.cookie(SESSION_COOKIE, token, {
     httpOnly: true,
     secure,
-    sameSite: 'strict',
+    sameSite: secure ? 'none' : 'strict',
     path: '/',
     maxAge: SESSION_DURATION_MS,
   });
 }
 
 export function clearSessionCookie(response) {
+  const secure = process.env.NODE_ENV === 'production';
   response.clearCookie(SESSION_COOKIE, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    secure,
+    sameSite: secure ? 'none' : 'strict',
     path: '/',
   });
 }
